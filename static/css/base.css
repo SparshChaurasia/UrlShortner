@@ -1,0 +1,24 @@
+:root {
+    --primary-color: rgba(29, 5, 201, 0.22);
+    --secondary-color: red;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: var(--primary-color);
+    height: 100vh;
+    position: relative;
+    /* display: flex;
+    flex-direction: column; */
+}
+.page {
+    height: 100%;
+}
+footer {
+    bottom: 0;
+    position: absolute;
+    /* align-items: flex-end; */
+}

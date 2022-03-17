@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UrlEzee | Free Url Shortner</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="page">
+        <div class="page__title-wrapper">
+            <h1 class="page__title">UrlEzee</h1>
+            <h3 class="page__sub-title">Free url shortening service</h3>
+        </div>
+        {% if messages %}
+        <ul class="page__messages-wrapper">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }} message"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <div class="page__form-wrapper">
+            <form action="{% url 'new' %}" method="post">
+                {% csrf_token %}
+                <div class="page__form--input-field">
+                    <label for="url">Enter your url</label>
+                    <input type="text" name="url" id="url">
+                </div>
+                <div class="page__form--input-field">
+                    <label for="name">Enter your prefered url name</label>
+                    <input type="text" name="name" id="name">
+                </div>
+                <input type="submit" value="Genrate Url!" class="page__form--submit-btn">
+            </form>
+        </div>
+    </div>
+    <footer>
+      <div class="container">
+        <ul class="flex-row">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#contact-us">Contact Us</a></li>
+        </ul>
+        <ul class="flex-row">
+          <li>
+            <i class="fab fa-youtube"></i>
+          </li>
+          <li>
+            <i class="fab fa-twitter"></i>
+          </li>
+          <li>
+            <i class="fab fa-instagram"></i>
+          </li>
+          <li>
+            <i class="fab fa-facebook"></i>
+          </li>
+          <li>
+            <i class="fab fa-dribbble"></i>
+          </li>
+        </ul>
+        <p>&copy; 2022 UrlEzee</p>
+      </div>
+    </footer>
+</body>
+
+</html>
