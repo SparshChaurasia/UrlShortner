@@ -11,14 +11,30 @@ body {
     background-color: var(--primary-color);
     height: 100vh;
     position: relative;
-    /* display: flex;
-    flex-direction: column; */
+    overflow: hidden;
+    margin: 20px;
+}
+/* Navbar Styling */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav__links-wrapper ul {
+    display: flex;
+}
+.nav__link {
+    list-style-type: none;
+    padding-left: 20px;
+}
+.nav__link a {
+    text-decoration: none;
 }
 .page {
     height: 100%;
 }
+/* Footer Styling */
 footer {
     bottom: 0;
     position: absolute;
-    /* align-items: flex-end; */
 }

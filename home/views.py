@@ -21,12 +21,16 @@ def new(request):
     url = request.POST.get("url")
     name = request.POST.get("name")
 
+    if url and name is None:
+        messages.error(request, "Please enter a valid name")
+        return redirect("/")
+
     if Urls.objects.filter(name=name).exists():
         messages.error(request, "This name is already taken")
         return redirect("/")
 
     u = Urls(name=name, url=url)
-    print(u)
     u.save()
     messages.success(request, "Your url was registered successfully")
+    messages.info(request, f"Your shortened url is {request.get_host()}/{name}")
     return redirect("/")

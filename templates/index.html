@@ -12,15 +12,29 @@
 </head>
 
 <body>
-    <div class="page">
-        <div class="page__title-wrapper">
-            <h1 class="page__title">UrlEzee</h1>
-            <h3 class="page__sub-title">Free url shortening service</h3>
+	<header>
+		<nav>
+		<div class="nav__title-wrapper">
+            <h1 class="nav__title">UrlEzee</h1>
+            <h3 class="nav__sub-title">Free url shortening service</h3>
         </div>
+		<div class="nav__links-wrapper">
+			<ul>
+				<li class="nav__link"><a href="#">Home</a></li>
+				<li class="nav__link"><a href="#">How to use</a></li>
+				<li class="nav__link"><a href="#">About</a></li>
+				<li class="nav__link"><a href="#">Contact</a></li>
+			</ul>
+		</div>
+		</nav>
+	</header>
+    <div class="page">
         {% if messages %}
         <ul class="page__messages-wrapper">
             {% for message in messages %}
-            <li{% if message.tags %} class="{{ message.tags }} message"{% endif %}>{{ message }}</li>
+            {% if message.tags == "success" or message.tags == "error" %}
+              <li class="{{ message.tags }} message">{{ message }}</li>
+            {% endif %}
             {% endfor %}
         </ul>
         {% endif %}
@@ -38,32 +52,38 @@
                 <input type="submit" value="Genrate Url!" class="page__form--submit-btn">
             </form>
         </div>
+        <ul class="page__messages-wrapper">
+            {% for message in messages %}
+            {% if message.tags == "info" %}
+              <li class="{{ message.tags }} message">{{ message }}</li>
+            {% endif %}
+            {% endfor %}
+        </ul>
     </div>
     <footer>
-      <div class="container">
+      <div class="footer__wrapper">
         <ul class="flex-row">
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#team">Team</a></li>
-          <li><a href="#contact-us">Contact Us</a></li>
+        	<li><a href="#">Home</a></li>
+        	<li><a href="#">About</a></li>
+        	<li><a href="#">How to use</a></li>
+        	<li><a href="#">Contact</a></li>
         </ul>
         <ul class="flex-row">
-          <li>
-            <i class="fab fa-youtube"></i>
-          </li>
-          <li>
-            <i class="fab fa-twitter"></i>
-          </li>
-          <li>
-            <i class="fab fa-instagram"></i>
-          </li>
-          <li>
-            <i class="fab fa-facebook"></i>
-          </li>
-          <li>
-            <i class="fab fa-dribbble"></i>
-          </li>
+        	<li>
+        	  <i class="fab fa-youtube"></i>
+        	</li>
+        	<li>
+        	  <i class="fab fa-twitter"></i>
+        	</li>
+        	<li>
+        	  <i class="fab fa-instagram"></i>
+        	</li>
+        	<li>
+        	  <i class="fab fa-facebook"></i>
+        	</li>
+        	<li>
+        	  <i class="fab fa-dribbble"></i>
+        	</li>
         </ul>
         <p>&copy; 2022 UrlEzee</p>
       </div>
